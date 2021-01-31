@@ -1,6 +1,6 @@
 {
   "name": "lab-docker-react",
-  "description": "An simple react app with docker integration for development and production environments",
+  "description": "A simple react app with docker integration for development and production environments",
   "license": "Apache-2.0",
   "version": "0.1.0",
   "private": true,

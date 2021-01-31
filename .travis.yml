@@ -1,10 +1,14 @@
 sudo: required
+os: linux
+dist:
 language: generic
 services:
   - docker
 
 before_install:
+  - docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD
   - docker build -t rafaeltorquato/lab-docker-react -f Dockerfile.dev .
 
 script:
+  - docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD
   - docker run -e CI=true rafaeltorquato/lab-docker-react npm run test -- --coverage

@@ -22,7 +22,7 @@ steps:
   timeoutInMinutes: 3
 
 - script: |
-    npm build
+    npm run build
   displayName: 'Build for production'
   timeoutInMinutes: 3
 

@@ -13,10 +13,10 @@ steps:
 - task: NodeTool@0
   inputs:
     versionSpec: '14.15.4'
-  displayName: 'Install Node.js'
+  displayName: 'Run tests'
 
 - script: |
     npm install
-    npm run test -- --coverage
+    npm test -- --watchAll=false
   displayName: 'npm install and test'
   timeoutInMinutes: 3

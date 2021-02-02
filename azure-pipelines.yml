@@ -29,5 +29,6 @@ steps:
 - task: Docker@2
   inputs:
     command: 'build'
-    Dockerfile: '**/Dockerfile'
+    Dockerfile: '**/Dockerfile.azure'
     tags: 'rafaeltorquato/lab-docker-react-azure:$(Build.BuildId)'
+  displayName: 'Build Docker image'

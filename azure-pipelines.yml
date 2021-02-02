@@ -13,10 +13,21 @@ steps:
 - task: NodeTool@0
   inputs:
     versionSpec: '14.15.4'
-  displayName: 'Run tests'
+  displayName: 'Install NodeJS'
 
 - script: |
     npm install
     npm test -- --watchAll=false
-  displayName: 'npm install and test'
+  displayName: 'Testing'
   timeoutInMinutes: 3
+
+- script: |
+    npm build
+  displayName: 'Build for production'
+  timeoutInMinutes: 3
+
+- task: Docker@2
+  inputs:
+    command: 'build'
+    Dockerfile: '**/Dockerfile'
+    tags: 'rafaeltorquato/lab-docker-react-azure:$(Build.BuildId)'

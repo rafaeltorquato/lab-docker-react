@@ -26,6 +26,14 @@ steps:
   displayName: 'Build for production'
   timeoutInMinutes: 3
 
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '**/coverage/cobertura-coverage.xml'
+    pathToSources: '$(System.DefaultWorkingDirectory)/lab-docker-react/src'
+    reportDirectory: '**/lcov-report'
+  displayName: 'Publishing Code Coverage'
+
 - task: Docker@2
   inputs:
     command: 'build'

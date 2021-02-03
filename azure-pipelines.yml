@@ -20,15 +20,16 @@ steps:
     npm run coverage
     cd coverage
     ls -la
+    echo $(System.DefaultWorkingDirectory)
   displayName: 'Testing'
   timeoutInMinutes: 3
 
 - task: PublishCodeCoverageResults@1
   inputs:
     codeCoverageTool: 'Cobertura'
-    summaryFileLocation: '$(System.DefaultWorkingDirectory)/lab-docker-react/coverage/cobertura-coverage.xml'
-    pathToSources: '$(System.DefaultWorkingDirectory)/lab-docker-react/src'
-    reportDirectory: '$(System.DefaultWorkingDirectory)/lab-docker-react/coverage'
+    summaryFileLocation: '$(System.DefaultWorkingDirectory)/coverage/cobertura-coverage.xml'
+    pathToSources: '$(System.DefaultWorkingDirectory)/src'
+    reportDirectory: '$(System.DefaultWorkingDirectory)/coverage'
   displayName: 'Publishing Code Coverage'
 
 - script: |

@@ -21,18 +21,18 @@ steps:
   displayName: 'Testing'
   timeoutInMinutes: 3
 
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '$(System.DefaultWorkingDirectory)/lab-docker-react/**/coverage/cobertura-coverage.xml'
+    pathToSources: '$(System.DefaultWorkingDirectory)/lab-docker-react/src'
+    reportDirectory: '$(System.DefaultWorkingDirectory)/lab-docker-react/**/lcov-report'
+  displayName: 'Publishing Code Coverage'
+
 - script: |
     npm run build
   displayName: 'Build for production'
   timeoutInMinutes: 3
-
-- task: PublishCodeCoverageResults@1
-  inputs:
-    codeCoverageTool: 'Cobertura'
-    summaryFileLocation: '**/coverage/cobertura-coverage.xml'
-    pathToSources: '$(System.DefaultWorkingDirectory)/lab-docker-react/src'
-    reportDirectory: '**/lcov-report'
-  displayName: 'Publishing Code Coverage'
 
 - task: Docker@2
   inputs:

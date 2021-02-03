@@ -17,7 +17,6 @@ steps:
 
 - script: |
     npm install
-    npm test
     npm run coverage
   displayName: 'Testing'
   timeoutInMinutes: 3

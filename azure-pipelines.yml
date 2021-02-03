@@ -18,6 +18,8 @@ steps:
 - script: |
     npm install
     npm run coverage
+    cd coverage
+    ls -la
   displayName: 'Testing'
   timeoutInMinutes: 3
 

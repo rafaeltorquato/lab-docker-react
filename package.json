@@ -40,7 +40,8 @@
   },
   "jest": {
     "coverageReporters": [
-      "cobertura"
+      "cobertura",
+      "html"
     ]
   }
 }

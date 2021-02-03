@@ -24,9 +24,9 @@ steps:
 - task: PublishCodeCoverageResults@1
   inputs:
     codeCoverageTool: 'Cobertura'
-    summaryFileLocation: '$(System.DefaultWorkingDirectory)/lab-docker-react/**/coverage/cobertura-coverage.xml'
+    summaryFileLocation: '$(System.DefaultWorkingDirectory)/lab-docker-react/coverage/cobertura-coverage.xml'
     pathToSources: '$(System.DefaultWorkingDirectory)/lab-docker-react/src'
-    reportDirectory: '$(System.DefaultWorkingDirectory)/lab-docker-react/**/lcov-report'
+    reportDirectory: '$(System.DefaultWorkingDirectory)/lab-docker-react/coverage/lcov-report'
   displayName: 'Publishing Code Coverage'
 
 - script: |

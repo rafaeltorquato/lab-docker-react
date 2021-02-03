@@ -18,10 +18,7 @@ steps:
 - script: |
     npm install
     npm run coverage
-    cd coverage
-    ls -la
-    echo $(System.DefaultWorkingDirectory)
-  displayName: 'Testing'
+  displayName: 'Test'
   timeoutInMinutes: 3
 
 - task: PublishCodeCoverageResults@1
@@ -30,7 +27,7 @@ steps:
     summaryFileLocation: '$(System.DefaultWorkingDirectory)/coverage/cobertura-coverage.xml'
     pathToSources: '$(System.DefaultWorkingDirectory)/src'
     reportDirectory: '$(System.DefaultWorkingDirectory)/coverage'
-  displayName: 'Publishing Code Coverage'
+  displayName: 'Publish Code Coverage'
 
 - script: |
     npm run build

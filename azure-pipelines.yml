@@ -14,7 +14,6 @@ steps:
   inputs:
     versionSpec: '14.15.4'
   displayName: 'Install NodeJS'
-
 - script: |
     npm install
     npm run coverage
@@ -28,7 +27,6 @@ steps:
     pathToSources: '$(System.DefaultWorkingDirectory)/src'
     reportDirectory: '$(System.DefaultWorkingDirectory)/coverage'
   displayName: 'Publish Code Coverage'
-
 - script: |
     npm run build
   displayName: 'Build for production'

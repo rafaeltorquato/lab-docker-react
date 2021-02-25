@@ -11,3 +11,15 @@ before_install:
 script:
   - docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD
   - docker run -e CI=true rafaeltorquato/lab-docker-react npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "lab-docker-react"
+  env: "Labdockerreact-env"
+  bucket_name: "elasticbeanstalk-us-east-2-917652313817"
+  bucket_path: "lab-docker-react"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_ACCESS_KEY
